@@ -3,6 +3,9 @@
 	dh $@
 #--with python-virtualenv
 
+override_dh_auto_configure:
+	mv ospi/ospi.py ospi/__init__.py
+
 override_dh_installinit:
 	cp -a ospi/ospi.sh debian/ospi.init
 	dh_installinit
