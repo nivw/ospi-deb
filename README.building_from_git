@@ -1,14 +1,22 @@
 This Debian package provides unofficial support for OSPi
 In order to create the Debian package from upstream sources, do the following:
 
-copy the upstream tar ball to this dir: 
-wget https://github.com/Dan-in-CA/OSPi/archive/master.zip
-unzip master.zip && rm master.zip
-mv OSPi ospi
+Greate a new directory and change to it:
+$ mkdir ospi
+$ cd ospi
+Get the source:
+$ wget https://github.com/Dan-in-CA/OSPi/archive/master.zip
+$ unzip master.zip && rm master.zip
+$ mv OSPi-master ospii
+
+Tar the source:
+$ cd ..
+$ tar cvzf ospi_2.0.orig.tar.gz ospi/
 
 copy the content of ospi-deb to the ospi directory:
-cp -r ../ospi-deb/* .
+$ wget https://github.com/nivw/ospi-deb/archive/master.zip
+$ unzip master.zip && rm master.zip
+$ mv ospi-deb/debian .
 
-dpkg-buildpackage -S -sa
-mv ../ospi_2.0-1.tar.gz ../ospi_2.0.orig.tar.gz
-debuild
+And build it
+$ dpkg-buildpackage -rfakeroot -uc -us
