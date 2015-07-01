@@ -1,0 +1,3 @@
+for d in /usr/ospi/* ; do sudo ln -s $d /usr/share/pyshared/ospi/${d##*/} ;done
+cd /lib/systemd/system/
+patch <~/patches/ospi.service.patch

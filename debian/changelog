@@ -1,4 +1,4 @@
-ospi (2.0-1) UNRELEASED; urgency=low
+ospi (2.0-1) jessie; urgency=low
 
   * Initial packaging setup for 2.0
 
