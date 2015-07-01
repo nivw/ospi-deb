@@ -11,7 +11,7 @@ data_dir=( 'templates', 'static', 'i18n', 'data' )
 data_files=[]
 
 for directory in data_dir:
-  for root, dirs, files in os.walk( os.getcwd() ):
+  for root, dirs, files in os.walk( 'ospi/'+directory ):
     for f in files:
       if f.startswith('.') :
         files.remove(f)
