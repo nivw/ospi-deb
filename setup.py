@@ -47,6 +47,8 @@ setup(name='ospi',
       version=__version__, # pylint: disable=E0602
       url='https://github.com/Dan-in-CA/OSPi',
       packages=find_packages(exclude=["tests"]),
+      package_dir={project_name : project_name },
+      package_data={project_name : package_data},
       include_package_data=True,
       install_requires=install_requires,
       entry_points={
