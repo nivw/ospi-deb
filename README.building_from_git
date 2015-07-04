@@ -1,4 +1,6 @@
-This Debian package provides unofficial support for OSPi
+This Debian package provides unofficial support for OSPi.
+I assume you are using beaglebone black with debian 8 jessie, and kernel 4.0.4.
+
 In order to create the Debian package from upstream sources, do the following:
 
 Greate a new directory and change to it:
@@ -7,7 +9,7 @@ $ cd ospi
 Get the source:
 $ wget https://github.com/Dan-in-CA/OSPi/archive/master.zip
 $ unzip master.zip && rm master.zip
-$ mv OSPi-master ospii
+$ mv OSPi-master OSPi
 
 Tar the source:
 $ cd ..
@@ -16,7 +18,11 @@ $ tar cvzf ospi_2.0.orig.tar.gz ospi/
 copy the content of ospi-deb to the ospi directory:
 $ wget https://github.com/nivw/ospi-deb/archive/master.zip
 $ unzip master.zip && rm master.zip
-$ mv ospi-deb/debian .
+$ mv ospi-deb-master/* ospi/
 
 And build it
+$ cd ospi/
+$ touch OSPi/__init__.py
 $ dpkg-buildpackage -rfakeroot -uc -us
+
+If you get error for missing dependencies, just run sudo apt-get install -f

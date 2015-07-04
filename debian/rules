@@ -3,14 +3,22 @@
 	dh $@
 #--with python-virtualenv
 
-override_dh_auto_configure:
-	mv ospi/ospi.py ospi/__init__.py
+#override_dh_clean:
+#	rm ospi.egg-info debian/ospi* ../ospi_2.0-1*
+
+#override_dh_auto_configure:
+#	mv ospi/ospi.py ospi/__init__.py
+#	pip install Adafruit_BBIO
 
 override_dh_installinit:
-	cp -a ospi/ospi.sh debian/ospi.init
-	dh_installinit
-	cp -a ospi/ospi.service debian/ospi.service
+	#cp -a OSPi/ospi.sh debian/ospi.init
+	#dh_installinit
+	#python setup.py install --root=debian/ospi --install-layout=deb --install-lib=/usr/share/ospi --install-scripts=/usr/share/ospi
+	#python setup.py install --root=debian/ospi --install-layout=deb --home=/home/debian
+	cp -a ospi.service debian/ospi.service
 	dh_systemd_enable
 	dh_systemd_start
+
+override_dh_auto_build:
 
 override_dh_auto_test:
