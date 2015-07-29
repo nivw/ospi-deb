@@ -17,14 +17,14 @@ for directory in data_dir:
       temp_list.remove(project_name)
       path='/'.join( temp_list )
       package_data.extend( [ os.path.join( path, f) for f in files] )
-
+"""
 with open('packages.json', 'w') as f:
   json.dump( find_packages(), f )
 
 with open('package_data', 'w') as f:
   for s in package_data:
         f.write(s + '\n')
-      
+"""      
 with open(_in_same_dir("__version__.py")) as version_file:
   exec(version_file.read()) # pylint: disable=W0122
 
