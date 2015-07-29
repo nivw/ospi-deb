@@ -1,8 +1,8 @@
-﻿[Unit]
+[Unit]
 Description=Start Python Interval program
 
 [Service]
-WorkingDirectory=/usr/share/pyshared/OSPi
+WorkingDirectory=/usr/lib/python2.7/dist-packages/OSPi
 ExecStart=/usr/bin/python ospi.py
 KillMode=process
 

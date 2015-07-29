@@ -2,7 +2,7 @@ Source: ospi
 Maintainer: Niv Gal Waizer <nivwiz@gmail.com>
 Section: misc
 Priority: optional
-Build-Depends: debhelper(>=8)
+Build-Depends: debhelper(>=8), dh-python
 X-Python-Version: >= 2.7
 
 Package: ospi

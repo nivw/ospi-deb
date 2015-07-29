@@ -18,9 +18,6 @@ for directory in data_dir:
       path='/'.join( temp_list )
       package_data.extend( [ os.path.join( path, f) for f in files] )
 
-with open('data_files.json','w') as f:
-  json.dump(data_files, f)
-
 with open('packages.json', 'w') as f:
   json.dump( find_packages(), f )
 
@@ -47,9 +44,9 @@ setup(name='ospi',
       version=__version__, # pylint: disable=E0602
       url='https://github.com/Dan-in-CA/OSPi',
       packages=find_packages(exclude=["tests"]),
+      include_package_data=True,
       package_dir={project_name : project_name },
       package_data={project_name : package_data},
-      include_package_data=True,
       install_requires=install_requires,
       entry_points={
               'console_scripts': [

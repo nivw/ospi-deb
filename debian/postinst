@@ -1,3 +1,8 @@
 export ARCH=arm
 export CROSS_COMPILE=/usr/bin/
-pip install Adafruit_BBIO
+
+python -c 'import Adafruit_BBIO.GPIO' || pip install --upgrade Adafruit_BBIO
+
+systemctl daemon-reload
+systemctl enable ospi.service
+systemctl restart ospi.service
